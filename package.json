@@ -1,6 +1,6 @@
 {
   "name": "vmodule-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A virtual module webpack plug-in",
   "main": "./lib/plugin.js",
   "scripts": {
