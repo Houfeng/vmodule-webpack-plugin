@@ -46,7 +46,7 @@ module.exports = {
 };
 ```
 
-在代码中使用模块
+在代码中使用虚拟模块
 ```js
 const module1 = require('demo-module1');
 const module2 = requrie('demo-module2');
