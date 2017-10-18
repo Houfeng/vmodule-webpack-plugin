@@ -1,6 +1,6 @@
 {
   "name": "vmodule-webpack-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A virtual module webpack plug-in",
   "main": "./lib/index.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "author": "Houfeng",
   "license": "MIT",
   "dependencies": {
+    "chokidar": "^1.7.0",
     "md5": "^2.2.1",
     "ntils": "^2.1.2"
   }
