@@ -27,12 +27,14 @@ module.exports = {
       name: 'demo-module1',
       handler: function() {
         return { name: 'demo', env: process.env.NODE_ENV };
-      }
+      },
+      //在 watch 的文件发生变化时，重新执行 handler 生成虚拟模块
+      watch: ['glob 语法'] 
     }),
     //返回代码的虚拟模块
     new VModulePlugin({
       name: 'demo-module2',
-      code: true
+      type: 'js'
       handler: function() {
         reutrn `
           exports.say = function(text) {
