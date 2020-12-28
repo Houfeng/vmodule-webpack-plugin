@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
+    "outDir": "./lib/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "lib": [
+      "ESNext"
+    ]
   },
   "include": [
     "./src/**/*"
