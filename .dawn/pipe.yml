@@ -25,4 +25,4 @@ publish:
   - name: submitter
   - name: shell
     script:
-      - npm publish
+      - npm pu --registry=http://registry.npmjs.org
