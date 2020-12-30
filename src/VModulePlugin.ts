@@ -73,7 +73,7 @@ export class VModulePlugin {
 
   public apply(compiler: Compiler) {
     const { hooks } = compiler;
-    if (!hooks?.entryOption || !hooks.watchRun) {
+    if (!hooks || !hooks.entryOption || !hooks.watchRun) {
       return this.apply4Legacy(compiler);
     }
     compiler.hooks.entryOption.tap('entry-option', () => {
