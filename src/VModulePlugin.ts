@@ -48,7 +48,34 @@ export class VModulePlugin {
     this.watching = true;
   };
 
+  protected apply4Legacy(compiler: any) {
+    compiler.plugin('entry-option',
+      function (_params: any, _callback: any): any {
+        const config = compiler.options;
+        //添加别名
+        config.resolve = config.resolve || {};
+        config.resolve.alias = config.resolve.alias || {};
+        const { alias } = config.resolve;
+        if (isArray(alias)) {
+          alias.push({
+            "name": this.moduleFile,
+            "alias": this.moduleName
+          })
+        } else {
+          alias[this.moduleName] = this.moduleFile;
+        }
+      });
+    compiler.plugin('watch-run', (_watching: any, callback: any) => {
+      this.watch(this.options);
+      if (callback) callback();
+    });
+  }
+
   public apply(compiler: Compiler) {
+    const { hooks } = compiler;
+    if (!hooks?.entryOption || !hooks.watchRun) {
+      return this.apply4Legacy(compiler);
+    }
     compiler.hooks.entryOption.tap('entry-option', () => {
       const config = compiler.options;
       //添加别名
